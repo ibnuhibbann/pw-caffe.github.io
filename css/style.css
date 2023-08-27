@@ -204,3 +204,38 @@ body {
     background: #ffffff;
     color: var(--primary);
 }
+
+/* SplashScreen */
+#splash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #ffffff !important;
+    height: 100vh;
+    width: 100%;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+#splash img {
+    width: 0px;
+    animation: resizeImage 1s forwards; /* 2s adalah durasi animasi */
+}
+
+@keyframes resizeImage {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 200px;
+    }
+}
+
+#splash.fade {
+    opacity: 0;
+}
