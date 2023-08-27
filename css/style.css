@@ -171,9 +171,11 @@ body {
     left: calc(50% - 13px);
 }
 
-/*** Products ***/
+/*** Gallery ***/
 .product {
-    background: url(../img/product-bg.png) left bottom no-repeat;
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(../img/bg-gallery1.jpg) left bottom no-repeat;
     background-size: cover;
 }
 
@@ -181,6 +183,27 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+}
+
+.product-carousel .product-item {
+    position: relative; /* Membuat posisi relatif untuk mengatur masking dan gambar */
+    width: 100%; /* Lebar masking */
+    height: 200px; /* Tinggi masking */
+    overflow: hidden; /* Mengatur overflow menjadi hidden untuk menciptakan efek masking */
+}
+
+.product-carousel .product-item img {
+    width: 100%; /* Gambar tetap berukuran penuh di dalam masking */
+    height: auto; /* Mempertahankan aspek rasio gambar */
+    position: absolute; /* Mengatur posisi absolut untuk gambar di dalam masking */
+    /* top: 50%; */
+    left: 50%; /* Posisi horizontal di tengah masking */
+    transform: translate(
+        -50%,
+        -50%
+    ); /* Membuat gambar tepat di tengah masking */
+    object-fit: cover; /* Memastikan gambar di dalam tetap memenuhi dengan object-fit */
+    z-index: -1; /* Mengatur gambar di belakang konten lain di dalam .product-item */
 }
 
 .product-carousel .owl-nav .owl-prev,
@@ -238,4 +261,29 @@ body {
 
 #splash.fade {
     opacity: 0;
+}
+
+.marquee-container {
+    background-color: white;
+    height: 30px;
+    overflow: hidden;
+    display: flex; /* Menggunakan flex display untuk mengatur alignment */
+    align-items: center; /* Mengatur vertikal alignment menjadi tengah */
+}
+
+.marquee {
+    white-space: nowrap;
+    animation: marquee 15s linear infinite;
+    display: inline-block; /* Menjadikan teks berjalan sebagai blok inline */
+    vertical-align: middle; /* Mengatur vertikal alignment pada tengah */
+    font-size: 11px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
