@@ -214,8 +214,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
-    background: rgb(37, 37, 37);
+    color: #000000;
+    background: rgb(255, 255, 255);
     border-radius: 55px;
     box-shadow: 0 0 45px rgba(0, 0, 0, 0.15);
     font-size: 12px;
