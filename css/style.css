@@ -75,7 +75,7 @@ body {
 }
 
 @media (max-width: 425px) {
-    .menu {
+    .menu-1 {
         margin-top: 1.5rem;
     }
 
@@ -137,38 +137,8 @@ body {
 /*** Section Title ***/
 .section-title {
     position: relative;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
-}
-
-.section-title::before {
-    position: absolute;
-    content: "";
-    width: 50%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background: var(--primary);
-}
-
-.section-title::after {
-    position: absolute;
-    content: "";
-    width: 28px;
-    height: 28px;
-    bottom: -13px;
-    left: calc(25% - 13px);
-    background: var(--dark);
-    border: 10px solid #ffffff;
-    border-radius: 28px;
-}
-
-.section-title.text-center::before {
-    left: 25%;
-}
-
-.section-title.text-center::after {
-    left: calc(50% - 13px);
+    /* margin-bottom: 3rem;
+    padding-bottom: 2rem; */
 }
 
 /*** Gallery ***/
@@ -286,4 +256,61 @@ body {
     100% {
         transform: translateX(-100%);
     }
+}
+
+/* Promo */
+.promo {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6)),
+        url(../img/bg-gallery.jpg) left bottom no-repeat;
+    background-size: cover;
+}
+
+.promo-carousel .owl-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.promo-carousel .promo-item {
+    position: relative; /* Membuat posisi relatif untuk mengatur masking dan gambar */
+    width: 100%; /* Lebar masking */
+    height: 32rem; /* Tinggi masking */
+    overflow: hidden; /* Mengatur overflow menjadi hidden untuk menciptakan efek masking */
+}
+
+.promo-carousel .promo-item img {
+    width: 100%; /* Gambar tetap berukuran penuh di dalam masking */
+    height: auto; /* Mempertahankan aspek rasio gambar */
+    position: absolute; /* Mengatur posisi absolut untuk gambar di dalam masking */
+    /* top: 50%; */
+    left: 50%; /* Posisi horizontal di tengah masking */
+    transform: translate(
+        -50%,
+        -50%
+    ); /* Membuat gambar tepat di tengah masking */
+    object-fit: cover; /* Memastikan gambar di dalam tetap memenuhi dengan object-fit */
+    z-index: -1; /* Mengatur gambar di belakang konten lain di dalam .product-item */
+}
+
+.promo-carousel .owl-nav .owl-prev,
+.promo-carousel .owl-nav .owl-next {
+    margin: 0 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    background: rgb(255, 255, 255);
+    border-radius: 55px;
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.15);
+    font-size: 12px;
+    transition: 0.5s;
+}
+
+.promo-carousel .owl-nav .owl-prev:hover,
+.promo-carousel .owl-nav .owl-next:hover {
+    background: #ffffff;
+    color: var(--primary);
 }
